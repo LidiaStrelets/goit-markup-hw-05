@@ -354,10 +354,10 @@ img {
 .team-icon {
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.icon-instagram,
-.icon-twitter,
-.icon-facebook,
-.icon-linkedin {
+.team-description .icon-instagram,
+.team-description .icon-twitter,
+.team-description .icon-facebook,
+.team-description .icon-linkedin {
   fill: var(--icon-color);
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -394,7 +394,7 @@ img {
 
   border: 1px solid var(--icon-color);
 
-  transition: border-color 2500ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .clients-list a:hover,
 .clients-list a:focus {
@@ -407,7 +407,7 @@ img {
 .icon-logo5,
 .icon-logo6 {
   fill: var(--icon-color);
-  transition: fill 2500ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .clients-list a:hover .icon-logo1,
 .clients-list a:hover .icon-logo2,
@@ -416,11 +416,11 @@ img {
 .clients-list a:hover .icon-logo5,
 .clients-list a:hover .icon-logo6,
 .clients-list a:focus .icon-logo1,
-clients-list a:focus .icon-logo2,
-clients-list a:focus .icon-logo3,
-clients-list a:focus .icon-logo4,
-clients-list a:focus .icon-logo5,
-clients-list a:focus .icon-logo6 {
+.clients-list a:focus .icon-logo2,
+.clients-list a:focus .icon-logo3,
+.clients-list a:focus .icon-logo4,
+.clients-list a:focus .icon-logo5,
+.clients-list a:focus .icon-logo6 {
   fill: var(--accent-color);
 }
 
@@ -491,7 +491,7 @@ footer .container {
   justify-content: space-between;
 }
 footer .team-icon {
-  --color3: var(--white-color);
+  fill: var(--white-color);
   background-color: var(--footer-icons-bcg-color);
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
