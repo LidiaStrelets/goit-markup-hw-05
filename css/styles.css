@@ -81,17 +81,19 @@ img {
 }
 .nav-link {
   position: relative;
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 32px;
 
   color: var(--headers-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
-
-  display: block;
-  padding-top: 32px;
-  padding-bottom: 32px;
 }
+
 .nav-link.current {
   color: var(--accent-color);
 }
@@ -108,17 +110,29 @@ img {
 }
 .contakts {
   color: inherit;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   display: inline-flex;
   align-items: center;
+}
 
-  --color4: var(--text-color);
+.icon-envelope,
+.icon-smartphone {
+  margin-right: 10px;
+  fill: var(--text-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contakts:hover .icon-envelope,
+.contakts:focus .icon-envelope,
+.contakts:hover .icon-smartphone,
+.contakts:focus .icon-smartphone {
+  fill: var(--accent-color);
 }
 
 .contakts:hover,
 .contakts:focus {
   color: var(--accent-color);
-
-  --color4: var(--accent-color);
 }
 .nav-list {
   display: flex;
@@ -137,10 +151,6 @@ img {
 .container.header {
   display: flex;
   align-items: center;
-}
-.icon-envelope,
-.icon-smartphone {
-  margin-right: 10px;
 }
 
 /*шапка*/
@@ -340,12 +350,30 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  --color3: var(--icon-color);
 }
-.socmedia-list a:hover,
-.socmedia-list a:focus {
+.icon-instagram,
+.icon-twitter,
+.icon-facebook,
+.icon-linkedin {
+  fill: var(--icon-color);
+  transition: fill 2500ms cubic-bezier(0.4, 0, 0.2, 1) 250;
+}
+.team-icon {
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.team-icon:hover .icon-instagram,
+.team-icon:hover .icon-twitter,
+.team-icon:hover .icon-facebook,
+.team-icon:hover .icon-linkedin,
+.team-icon:focus .icon-instagram,
+.team-icon:focus .icon-linkedin,
+.team-icon:focus .icon-twitter,
+.team-icon:focus .icon-facebook {
+  fill: var(--white-color);
+}
+.team-icon:hover,
+.team-icon:focus {
   background-color: var(--accent-color);
-  --color3: var(--white-color);
 }
 /*team*/
 /*clients*/
@@ -366,6 +394,8 @@ img {
   border: 1px solid var(--icon-color);
 
   --color3: var(--icon-color);
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-list a:hover,
@@ -443,6 +473,8 @@ footer .container {
 footer .team-icon {
   --color3: var(--white-color);
   background-color: var(--footer-icons-bcg-color);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 footer .team-icon:hover,
 footer .team-icon:focus {
@@ -465,6 +497,9 @@ footer .team-icon:focus {
   border-color: transparent;
 
   padding: 6px 22px;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .filter:not(:last-child) {
   margin-right: 8px;
@@ -517,7 +552,8 @@ footer .team-icon:focus {
 .list.portfolio > li {
   width: calc((100% - 60px) / 3);
 }
-.list.portfolio > li:hover {
+.list.portfolio > li:hover,
+.list.portfolio > li:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
@@ -531,41 +567,31 @@ footer .team-icon:focus {
 }
 .portfolio-card {
   position: relative;
+  overflow: hidden;
 }
-.portfolio-card::before {
+
+.portfolio-card p {
   position: absolute;
   top: 0;
   left: 0;
 
   width: 100%;
   height: 100%;
-
-  content: "";
-  display: inline-block;
-
-  background-color: var(--accent-opacity-color);
-
-  opacity: 0;
-}
-.portfolio-card p {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
+  padding: 63px 24px;
   margin: 0;
-  width: 322px;
+
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   color: var(--white-color);
-
-  opacity: 0;
+  background-color: var(--accent-opacity-color);
 }
 
-.list.portfolio a:hover .portfolio-card p {
-  opacity: 1;
+.list.portfolio a:hover .portfolio-card p,
+.list.portfolio a:focus .portfolio-card p {
+  transform: translateY(0);
 }
-.list.portfolio a:hover .portfolio-card::before {
-  opacity: 1;
-}
+
 /*portfolio*/
 /*modal window*/
 .backdrop {
@@ -575,16 +601,22 @@ footer .team-icon:focus {
   width: 100%;
   height: 100%;
   background-color: var(--modal-bgc);
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
 }
+.backdrop.is-hidden .modal {
+  transform: translate(-50%) scale(1.5);
+}
 .modal {
   position: absolute;
   top: 221px;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   width: 528px;
   height: 521px;
